@@ -97,12 +97,11 @@
 		3A754A8922C1323900BBA6D2 /* Travel */ = {
 			isa = PBXGroup;
 			children = (
+				3A754AB822C2A58E00BBA6D2 /* Model */,
+				3A754AB922C2A59900BBA6D2 /* View */,
+				3A754ABA22C2A5A000BBA6D2 /* Controllers */,
+				3A754ABB22C2A5C400BBA6D2 /* Supporting files */,
 				3A754A8A22C1323900BBA6D2 /* AppDelegate.swift */,
-				3A754A8C22C1323900BBA6D2 /* ViewController.swift */,
-				3A754A8E22C1323900BBA6D2 /* Main.storyboard */,
-				3A754A9122C1323A00BBA6D2 /* Assets.xcassets */,
-				3A754A9322C1323A00BBA6D2 /* LaunchScreen.storyboard */,
-				3A754A9622C1323A00BBA6D2 /* Info.plist */,
 			);
 			path = Travel;
 			sourceTree = "<group>";
@@ -123,6 +122,47 @@
 				3A754AAC22C1323A00BBA6D2 /* Info.plist */,
 			);
 			path = TravelUITests;
+			sourceTree = "<group>";
+		};
+		3A754AB822C2A58E00BBA6D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A754AB922C2A59900BBA6D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3A754ABC22C2A5F400BBA6D2 /* Storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3A754ABA22C2A5A000BBA6D2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3A754A8C22C1323900BBA6D2 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3A754ABB22C2A5C400BBA6D2 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				3A754A9622C1323A00BBA6D2 /* Info.plist */,
+				3A754A9122C1323A00BBA6D2 /* Assets.xcassets */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		3A754ABC22C2A5F400BBA6D2 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				3A754A8E22C1323900BBA6D2 /* Main.storyboard */,
+				3A754A9322C1323A00BBA6D2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,7 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9M4XX8662M;
-				INFOPLIST_FILE = Travel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Travel/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -453,7 +493,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9M4XX8662M;
-				INFOPLIST_FILE = Travel/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Travel/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
