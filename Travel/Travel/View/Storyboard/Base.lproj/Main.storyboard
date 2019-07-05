@@ -1,24 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g0V-lB-R7k">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Convertiseur-->
+        <scene sceneID="eSH-Hw-pDq">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController storyboardIdentifier="ExchangeRateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Cl-YR-OUU" customClass="ExchangeRateViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6UJ-yb-XWl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAUX DE CHANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws3-9n-WfY">
+                                <rect key="frame" x="91.5" y="62" width="231" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rON-Lj-5Wn">
+                                <rect key="frame" x="87" y="104" width="240" height="4"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="94W-n6-Xa9"/>
+                                    <constraint firstAttribute="height" constant="4" id="tOK-DT-Lgq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rON-Lj-5Wn" firstAttribute="centerX" secondItem="opj-gp-UIW" secondAttribute="centerX" id="7pq-Vb-Zdf"/>
+                            <constraint firstItem="Ws3-9n-WfY" firstAttribute="top" secondItem="opj-gp-UIW" secondAttribute="top" constant="18" id="HLn-v4-uIb"/>
+                            <constraint firstItem="Ws3-9n-WfY" firstAttribute="centerX" secondItem="opj-gp-UIW" secondAttribute="centerX" id="gSx-xY-5YU"/>
+                            <constraint firstItem="rON-Lj-5Wn" firstAttribute="top" secondItem="Ws3-9n-WfY" secondAttribute="bottom" constant="8" id="nPK-vZ-rq2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="opj-gp-UIW"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Convertiseur" image="euro" id="6KE-tV-g6D"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ke7-96-gNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-600" y="839.73214285714278"/>
+        </scene>
+        <!--Traduction-->
+        <scene sceneID="n1v-Mg-dfj">
+            <objects>
+                <viewController storyboardIdentifier="TranslationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="skT-IG-2Ez" customClass="TranslationViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bQO-lk-Sf3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRADUCTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AD-N0-0mY">
+                                <rect key="frame" x="122.5" y="62" width="169.5" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zVN-Dv-0bd">
+                                <rect key="frame" x="87" y="104" width="240" height="4"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="7TP-lm-yB6"/>
+                                    <constraint firstAttribute="width" constant="240" id="uLQ-by-y1L"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5AD-N0-0mY" firstAttribute="centerX" secondItem="jKe-mm-CVh" secondAttribute="centerX" id="EYl-sn-2Xa"/>
+                            <constraint firstItem="5AD-N0-0mY" firstAttribute="top" secondItem="jKe-mm-CVh" secondAttribute="top" constant="18" id="aa2-i4-mCO"/>
+                            <constraint firstItem="zVN-Dv-0bd" firstAttribute="centerX" secondItem="jKe-mm-CVh" secondAttribute="centerX" id="eVE-gZ-MlA"/>
+                            <constraint firstItem="zVN-Dv-0bd" firstAttribute="top" secondItem="5AD-N0-0mY" secondAttribute="bottom" constant="8" id="hBN-j7-RSt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jKe-mm-CVh"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Traduction" image="translation" id="w22-oS-gqu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2M-2z-OHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="839.73214285714278"/>
+        </scene>
+        <!--Météo-->
+        <scene sceneID="4sd-ui-QaF">
+            <objects>
+                <viewController storyboardIdentifier="WeatherViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hi8-Vu-3a0" customClass="WeatherViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6UP-jZ-LFs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MÉTÉO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ele-mg-HMV">
+                                <rect key="frame" x="162" y="62" width="90.5" height="34"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbE-SU-ZFE">
+                                <rect key="frame" x="87" y="104" width="240" height="4"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="2BI-lm-UYf"/>
+                                    <constraint firstAttribute="width" constant="240" id="Qpl-4X-InZ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-bX-6ZB">
+                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hi8-Vu-3a0" id="Fhn-bT-lie"/>
+                                    <outlet property="delegate" destination="hi8-Vu-3a0" id="dqX-gy-lQG"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JBU-bX-6ZB" firstAttribute="bottom" secondItem="Oju-zu-EQD" secondAttribute="bottom" id="2Bv-zs-yUZ"/>
+                            <constraint firstItem="JBU-bX-6ZB" firstAttribute="trailing" secondItem="Oju-zu-EQD" secondAttribute="trailing" id="49f-pv-GAv"/>
+                            <constraint firstItem="Ele-mg-HMV" firstAttribute="top" secondItem="Oju-zu-EQD" secondAttribute="top" constant="18" id="57t-a6-EQg"/>
+                            <constraint firstItem="JBU-bX-6ZB" firstAttribute="leading" secondItem="Oju-zu-EQD" secondAttribute="leading" id="7tt-Qu-Vay"/>
+                            <constraint firstItem="JBU-bX-6ZB" firstAttribute="top" secondItem="GbE-SU-ZFE" secondAttribute="bottom" constant="40" id="AsH-jq-BtJ"/>
+                            <constraint firstItem="Ele-mg-HMV" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="IwH-Ed-WRE"/>
+                            <constraint firstItem="GbE-SU-ZFE" firstAttribute="top" secondItem="Ele-mg-HMV" secondAttribute="bottom" constant="8" id="iME-eu-gX5"/>
+                            <constraint firstItem="GbE-SU-ZFE" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="oNS-Q5-suC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oju-zu-EQD"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Météo" image="sun" id="fMQ-Dv-CzU"/>
+                    <connections>
+                        <outlet property="weatherTableView" destination="JBU-bX-6ZB" id="8fL-c3-YAk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uet-yG-7QF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927.536231884058" y="839.73214285714278"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8ax-Ni-vxP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g0V-lB-R7k" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RPM-m8-Rfi">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0Cl-YR-OUU" kind="relationship" relationship="viewControllers" id="OHc-h6-pxG"/>
+                        <segue destination="skT-IG-2Ez" kind="relationship" relationship="viewControllers" id="e0N-TJ-goa"/>
+                        <segue destination="hi8-Vu-3a0" kind="relationship" relationship="viewControllers" id="LxZ-HX-L42"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZ0-Pm-KBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="-57"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="euro" width="32" height="32"/>
+        <image name="sun" width="32" height="32"/>
+        <image name="translation" width="32" height="32"/>
+    </resources>
 </document>
