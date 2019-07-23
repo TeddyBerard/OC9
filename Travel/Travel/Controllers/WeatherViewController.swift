@@ -12,7 +12,6 @@ class WeatherViewController: UIViewController {
 
     @IBOutlet weak var weatherTableView: UITableView!
     @IBOutlet weak var activityIndicationView: UIActivityIndicatorView!
-    // "http://api.openweathermap.org/data/2.5/weather?q=Nice&APPID=a2f609206a8846fc64ff22dc5c46abfd"
 
     var weatherCitys: [WeatherCity] = [] {
         didSet {
@@ -147,6 +146,21 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         cell.updateCell(weather: weatherCitys[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let cell = weatherTableView.cellForRow(at: indexPath) as? WeatherTableViewCell {
+                weatherCitys.remove(at: indexPath.row)
+                User.shared.removeCity(cityName: cell.cityName)
+                weatherTableView.reloadData()
+            }
+        }
     }
     
     

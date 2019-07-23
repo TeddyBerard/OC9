@@ -16,6 +16,8 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherTemperatureLabel: UILabel!
     @IBOutlet weak var weatherHumidityLabel: UILabel!
     
+    var cityName: String = ""
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,7 +30,9 @@ class WeatherTableViewCell: UITableViewCell {
     }
     
     func updateCell(weather: WeatherCity) {
-        nameCityLabel.text = weather.name
+        cityName = weather.name ?? ""
+        nameCityLabel.text = cityName
+        
         weatherDescriptionLabel.text = weather.weather?.first?.description?.uppercased()
         if let temp = weather.main?.temp?.rounded() {
             weatherTemperatureLabel.text = "\(temp)°"
