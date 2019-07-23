@@ -26,22 +26,46 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQX-ps-ukx">
-                        <rect key="frame" x="158" y="8" width="277" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="158" y="8" width="277" height="22.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8d-yd-Nf7">
-                        <rect key="frame" x="158" y="36.5" width="277" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8d-yd-Nf7">
+                        <rect key="frame" x="158" y="38.5" width="277" height="22.5"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dS-YA-lom">
+                        <rect key="frame" x="158" y="69" width="257" height="22.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="595-ed-hXb">
+                                <rect key="frame" x="0.0" y="0.0" width="128.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ux4-8x-ute">
+                                <rect key="frame" x="128.5" y="0.0" width="128.5" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="595-ed-hXb" firstAttribute="width" secondItem="Ux4-8x-ute" secondAttribute="width" id="ZyE-qW-Il0"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="3g1-Ti-iaL" secondAttribute="bottom" constant="8" id="4gL-fQ-eGd"/>
+                    <constraint firstItem="7dS-YA-lom" firstAttribute="leading" secondItem="3g1-Ti-iaL" secondAttribute="trailing" constant="8" id="6hK-Ji-O56"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="7dS-YA-lom" secondAttribute="bottom" constant="8" id="8EN-qB-pMQ"/>
                     <constraint firstAttribute="trailing" secondItem="mQX-ps-ukx" secondAttribute="trailing" constant="8" id="FAV-28-TU7"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="7dS-YA-lom" secondAttribute="trailing" constant="8" id="Fhn-qM-qwB"/>
                     <constraint firstItem="C8d-yd-Nf7" firstAttribute="top" secondItem="mQX-ps-ukx" secondAttribute="bottom" constant="8" id="KeJ-a5-gop"/>
+                    <constraint firstItem="7dS-YA-lom" firstAttribute="top" secondItem="C8d-yd-Nf7" secondAttribute="bottom" constant="8" id="ZbZ-V0-8Se"/>
                     <constraint firstItem="mQX-ps-ukx" firstAttribute="leading" secondItem="3g1-Ti-iaL" secondAttribute="trailing" constant="8" id="bbv-58-Rsd"/>
                     <constraint firstItem="mQX-ps-ukx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="dfW-K9-ojU"/>
                     <constraint firstItem="3g1-Ti-iaL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m1c-cm-2zK"/>
@@ -53,9 +77,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="WeatherDescriptionLabel" destination="C8d-yd-Nf7" id="hu3-xe-psM"/>
                 <outlet property="nameCityLabel" destination="mQX-ps-ukx" id="CJf-tP-fln"/>
+                <outlet property="weatherDescriptionLabel" destination="C8d-yd-Nf7" id="hu3-xe-psM"/>
+                <outlet property="weatherHumidityLabel" destination="Ux4-8x-ute" id="ATg-Z2-RCe"/>
                 <outlet property="weatherImageView" destination="3g1-Ti-iaL" id="31G-q6-uWO"/>
+                <outlet property="weatherTemperatureLabel" destination="595-ed-hXb" id="11A-5p-Bvy"/>
             </connections>
             <point key="canvasLocation" x="150" y="148.32589285714286"/>
         </tableViewCell>

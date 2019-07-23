@@ -86,7 +86,7 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="839.73214285714278"/>
         </scene>
-        <!--Météo-->
+        <!--Weather View Controller-->
         <scene sceneID="4sd-ui-QaF">
             <objects>
                 <viewController storyboardIdentifier="WeatherViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hi8-Vu-3a0" customClass="WeatherViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,13 +95,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MÉTÉO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ele-mg-HMV">
-                                <rect key="frame" x="162" y="62" width="90.5" height="34"/>
+                                <rect key="frame" x="162" y="106" width="90.5" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbE-SU-ZFE">
-                                <rect key="frame" x="87" y="104" width="240" height="4"/>
+                                <rect key="frame" x="87" y="148" width="240" height="4"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="4" id="2BI-lm-UYf"/>
@@ -109,13 +109,16 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-bX-6ZB">
-                                <rect key="frame" x="0.0" y="148" width="414" height="665"/>
+                                <rect key="frame" x="0.0" y="192" width="414" height="621"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hi8-Vu-3a0" id="Fhn-bT-lie"/>
                                     <outlet property="delegate" destination="hi8-Vu-3a0" id="dqX-gy-lQG"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FH9-sC-E9c">
+                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -125,19 +128,29 @@
                             <constraint firstItem="JBU-bX-6ZB" firstAttribute="leading" secondItem="Oju-zu-EQD" secondAttribute="leading" id="7tt-Qu-Vay"/>
                             <constraint firstItem="JBU-bX-6ZB" firstAttribute="top" secondItem="GbE-SU-ZFE" secondAttribute="bottom" constant="40" id="AsH-jq-BtJ"/>
                             <constraint firstItem="Ele-mg-HMV" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="IwH-Ed-WRE"/>
+                            <constraint firstItem="FH9-sC-E9c" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="aOK-8F-pwY"/>
+                            <constraint firstItem="FH9-sC-E9c" firstAttribute="centerY" secondItem="Oju-zu-EQD" secondAttribute="centerY" id="foM-Qx-nPy"/>
                             <constraint firstItem="GbE-SU-ZFE" firstAttribute="top" secondItem="Ele-mg-HMV" secondAttribute="bottom" constant="8" id="iME-eu-gX5"/>
                             <constraint firstItem="GbE-SU-ZFE" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="oNS-Q5-suC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oju-zu-EQD"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Météo" image="sun" id="fMQ-Dv-CzU"/>
+                    <navigationItem key="navigationItem" id="XBF-OH-ybp">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zmq-a0-qnF">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addCity:" destination="hi8-Vu-3a0" id="72S-FG-BeF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicationView" destination="FH9-sC-E9c" id="dOc-Ph-IuP"/>
                         <outlet property="weatherTableView" destination="JBU-bX-6ZB" id="8fL-c3-YAk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uet-yG-7QF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927.536231884058" y="839.73214285714278"/>
+            <point key="canvasLocation" x="1837.68115942029" y="839.73214285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8ax-Ni-vxP">
@@ -145,18 +158,38 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g0V-lB-R7k" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RPM-m8-Rfi">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="0Cl-YR-OUU" kind="relationship" relationship="viewControllers" id="OHc-h6-pxG"/>
                         <segue destination="skT-IG-2Ez" kind="relationship" relationship="viewControllers" id="e0N-TJ-goa"/>
-                        <segue destination="hi8-Vu-3a0" kind="relationship" relationship="viewControllers" id="LxZ-HX-L42"/>
+                        <segue destination="5ct-ME-CDs" kind="relationship" relationship="viewControllers" id="LxZ-HX-L42"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZ0-Pm-KBt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138" y="-57"/>
+        </scene>
+        <!--Météo-->
+        <scene sceneID="uw6-IN-6Eo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5ct-ME-CDs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Météo" image="sun" id="fMQ-Dv-CzU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bYc-iQ-nsm">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hi8-Vu-3a0" kind="relationship" relationship="rootViewController" id="QRW-Dt-XMQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rdo-xq-ako" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927.536231884058" y="839.73214285714278"/>
         </scene>
     </scenes>
     <resources>
