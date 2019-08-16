@@ -15,12 +15,14 @@ struct WeatherCity: Codable {
     let statusCodeErr: String?
     let weather: [WeatherDescription]?
     let main: WeatherMain?
+    let id: Double?
     
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case weather = "weather"
         case main = "main"
         case statusCode = "cod"
+        case id
     }
     
     init(from decoder: Decoder) throws {
@@ -31,7 +33,7 @@ struct WeatherCity: Codable {
         statusCodeErr = try? container.decode(String.self, forKey: .statusCode)
         weather = try? container.decode([WeatherDescription].self, forKey: .weather)
         main = try? container.decode(WeatherMain.self, forKey: .main)
-
+        id = try? container.decode(Double.self, forKey: .id)
     }
 }
 

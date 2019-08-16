@@ -22,9 +22,9 @@ class Weather {
         case noData
     }
     
-    func download(city: String, completion: @escaping (WeatherCity) -> Void,
+    func download(city: Double, completion: @escaping (WeatherCity) -> Void,
                   completionErr: @escaping (Error) -> Void) {
-        let jsonUrlString = "\(baseURL)?q=\(city)&APPID=\(privateKey)&lang=fr&units=metric"
+        let jsonUrlString = "\(baseURL)?id=\(Int(city))&APPID=\(privateKey)&lang=fr&units=metric"
         guard let url = URL(string: jsonUrlString) else {
             completionErr(WeatherError.wrongURL)
             return
@@ -65,7 +65,7 @@ class Weather {
         }
     }
     
-    func downloadCity(city: String, completion: @escaping (WeatherCity) -> Void,
+    func downloadCity(city: Double, completion: @escaping (WeatherCity) -> Void,
                       completionErr: @escaping (Error) -> Void) {
         Weather.shared.download(city: city, completion: completion, completionErr: completionErr)
     }

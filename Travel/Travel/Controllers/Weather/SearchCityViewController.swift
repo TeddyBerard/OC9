@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol SearchCityViewDelegate: class {
+    func addCity(with id: Double)
+}
+
 class SearchCityViewController: UIViewController {
     
     // MARK: - IBOutlet
@@ -19,9 +23,10 @@ class SearchCityViewController: UIViewController {
     
     // MARK: - Properties
     
-    var cities: [City] = []
-    var result: [String] = []
+    fileprivate var cities: [City] = []
+    fileprivate var result: [String] = []
     fileprivate var alreadySaved: Bool = User.shared.alreadySaveCities()
+    weak var delegate: SearchCityViewDelegate?
     
     // MARK: - Cycle Life
     
@@ -100,9 +105,15 @@ extension SearchCityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell") as? SearchTableViewCell else { return UITableViewCell() }
         
-        cell.updateText(cityName: cities[indexPath.row].name, country: cities[indexPath.row].country)
+        cell.updateText(cityName: cities[indexPath.row].name,
+                        country: cities[indexPath.row].country)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.addCity(with: cities[indexPath.row].id)
+        self.dismiss(animated: true, completion: nil)
     }
     
     

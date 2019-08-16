@@ -54,11 +54,11 @@ class WeatherViewController: UIViewController {
         })
     }
     
-    func donwloadNewCity(named: String) {
+    func donwloadNewCity(id: Double) {
         self.activityIndicationView.startAnimating()
         self.activityIndicationView.isHidden = false
-        Weather.shared.downloadCity(city: named, completion: { weatherCity in
-            User.shared.addCity(cityName: named)
+        Weather.shared.downloadCity(city: id, completion: { weatherCity in
+            User.shared.addCity(cityId: id)
             self.weatherCitys.append(weatherCity)
             DispatchQueue.main.async {
                 self.weatherTableView.reloadData()
@@ -88,36 +88,9 @@ class WeatherViewController: UIViewController {
         let secondViewController =
             main.instantiateViewController(withIdentifier:
                 "SearchCityViewController") as! SearchCityViewController
-        self.present(secondViewController, animated: true, completion: nil)
         
-//        let alertController = UIAlertController(title: "Nouvelle météo",
-//                                                message: "Entrez le nom d'une ville pour recevoir la météo",
-//                                                preferredStyle: .alert)
-//
-//        let action = UIAlertAction(title: "Ajouter", style: .default) { [weak self] alertAction in
-//            let textField = alertController.textFields?[0]
-//
-//            guard let cityName = textField?.text else {
-//                return
-//            }
-//
-//            if User.shared.getCities().contains(cityName) {
-//                self?.displayCustomError(message: Const.ErrorAlert.errorAlreayPresent)
-//                return
-//            }
-//
-//            self?.donwloadNewCity(named: cityName)
-//        }
-//
-//        let close = UIAlertAction(title: "Annuler", style: .cancel)
-//
-//        alertController.addTextField { (textField) in
-//            textField.placeholder = "Nom de la ville"
-//        }
-//
-//        alertController.addAction(action)
-//        alertController.addAction(close)
-//        self.present(alertController, animated: true, completion: nil)
+        secondViewController.delegate = self
+        self.present(secondViewController, animated: true, completion: nil)
     }
     
     func displayCustomError(message: String) {
@@ -163,10 +136,18 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             if let cell = weatherTableView.cellForRow(at: indexPath) as? WeatherTableViewCell {
                 weatherCitys.remove(at: indexPath.row)
-                User.shared.removeCity(cityName: cell.cityName)
+                User.shared.removeCity(cityId: cell.id)
                 weatherTableView.reloadData()
             }
         }
+    }
+    
+    
+}
+
+extension WeatherViewController: SearchCityViewDelegate {
+    func addCity(with id: Double) {
+        donwloadNewCity(id: id)
     }
     
     

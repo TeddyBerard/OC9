@@ -16,30 +16,30 @@ class User {
     
     // MARK: - Weather
     
-    func getCities() -> [String] {
-        return userDefaults.stringArray(forKey: Const.UserDefaultsKey.cities) ?? ["Nice"]
+    func getCities() -> [Double] {
+        return userDefaults.array(forKey: Const.UserDefaultsKey.cities) as? [Double] ?? []
     }
     
-    func addCity(cityName: String?) {
-        guard let cityName = cityName else {
+    func addCity(cityId: Double?) {
+        guard let cityId = cityId else {
             return
         }
         
         var citys = getCities()
         
-        guard !citys.contains(cityName) else {
+        guard !citys.contains(cityId) else {
             return
         }
         
-        citys.append(cityName)
+        citys.append(cityId)
         userDefaults.set(citys, forKey: Const.UserDefaultsKey.cities)
         userDefaults.synchronize()
     }
     
-    func removeCity(cityName: String) {
+    func removeCity(cityId: Double) {
         var citys = getCities()
         
-        if let indexCityToRemove = citys.firstIndex(of: cityName) {
+        if let indexCityToRemove = citys.firstIndex(of: cityId) {
             citys.remove(at: indexCityToRemove)
             userDefaults.set(citys, forKey: Const.UserDefaultsKey.cities)
             userDefaults.synchronize()
