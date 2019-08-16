@@ -12,6 +12,7 @@ struct Const {
     
     struct UserDefaultsKey {
         static let cities = "Cities"
+        static let alreadySave = "alreadySave"
     }
     
     struct ErrorSpecific {

@@ -14,6 +14,8 @@ class User {
     
     let userDefaults: UserDefaults = UserDefaults.standard
     
+    // MARK: - Weather
+    
     func getCities() -> [String] {
         return userDefaults.stringArray(forKey: Const.UserDefaultsKey.cities) ?? ["Nice"]
     }
@@ -44,4 +46,12 @@ class User {
         }
     }
     
+    func alreadySaveCities() -> Bool {
+        return userDefaults.bool(forKey: Const.UserDefaultsKey.alreadySave)
+    }
+    
+    func setAlreadySave() {
+        userDefaults.set(true, forKey: Const.UserDefaultsKey.alreadySave)
+        userDefaults.synchronize()
+    }
 }
