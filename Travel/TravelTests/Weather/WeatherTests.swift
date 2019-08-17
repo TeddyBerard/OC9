@@ -26,7 +26,7 @@ class WeatherTests: XCTestCase {
         let expectation = self.expectation(description: "CorrectCity")
         var weatherCity: WeatherCity? = nil
         
-        weather.download(city: "Nice", completion: {
+        weather.download(city: 2990440, completion: {
             weatherCity = $0
             expectation.fulfill()
 
@@ -41,7 +41,7 @@ class WeatherTests: XCTestCase {
         let expectation = self.expectation(description: "NewCity")
         var weatherCity: WeatherCity? = nil
         
-        weather.downloadCity(city: "Paris", completion: {
+        weather.downloadCity(city: 2968815, completion: {
             weatherCity = $0
             expectation.fulfill()
         }, completionErr: { _ in })
@@ -52,9 +52,9 @@ class WeatherTests: XCTestCase {
     }
     
     func resetCities() {
-        User.shared.userDefaults.set(["Nice"], forKey: Const.UserDefaultsKey.cities)
+        User.shared.userDefaults.set([2990440], forKey: Const.UserDefaultsKey.cities)
         User.shared.userDefaults.synchronize()
-        User.shared.addCity(cityName: "Paris")
+        User.shared.addCity(cityId: 2968815)
     }
     
     func testAddNewCity() {
@@ -86,7 +86,7 @@ class WeatherTests: XCTestCase {
         let expectation = self.expectation(description: "IncorrectCity")
         var error: Error? = nil
 
-        weather.download(city: "MEMRZMERM", completion: { _ in }, completionErr: { err in
+        weather.download(city: -1, completion: { _ in }, completionErr: { err in
             error = err
             expectation.fulfill()
         })
@@ -101,7 +101,7 @@ class WeatherTests: XCTestCase {
         var error: Error? = nil
         
         weather.baseURL = "%"
-        weather.download(city: "MEMRZMERM", completion: { _ in }, completionErr: { err in
+        weather.download(city: -1, completion: { _ in }, completionErr: { err in
             error = err
             expectation.fulfill()
         })
@@ -116,7 +116,7 @@ class WeatherTests: XCTestCase {
         var error: Error? = nil
         
         weather.baseURL = "https://"
-        weather.download(city: "MEMRZMERM", completion: { _ in }, completionErr: { err in
+        weather.download(city: -1, completion: { _ in }, completionErr: { err in
             error = err
             expectation.fulfill()
         })
@@ -131,7 +131,7 @@ class WeatherTests: XCTestCase {
         var error: Error? = nil
         
         weather.baseURL = "http://api.plos.org/search?q=title:DNA"
-        weather.download(city: "MEMRZMERM", completion: { _ in }, completionErr: { err in
+        weather.download(city: -1, completion: { _ in }, completionErr: { err in
             error = err
             expectation.fulfill()
         })
@@ -147,7 +147,7 @@ class WeatherTests: XCTestCase {
         let expectation = self.expectation(description: "IncorrectCity")
         var error: Error? = nil
         
-        weather.download(city: "MEMRZMERM", completion: { _ in }, completionErr: { err in
+        weather.download(city: -1, completion: { _ in }, completionErr: { err in
             error = err
             expectation.fulfill()
         })
