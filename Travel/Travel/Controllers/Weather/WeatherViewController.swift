@@ -116,6 +116,10 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         return weatherCitys.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = weatherTableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath)
             as? WeatherTableViewCell else {
@@ -129,6 +133,17 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let weatherView = WeatherHeaderView(frame: CGRect(origin: .zero,
+                                                          size: CGSize(width: view.frame.width, height: 91)))
+        
+        return weatherView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 91
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,

@@ -94,22 +94,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MÉTÉO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ele-mg-HMV">
-                                <rect key="frame" x="162" y="106" width="90.5" height="34"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbE-SU-ZFE">
-                                <rect key="frame" x="87" y="148" width="240" height="4"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="4" id="2BI-lm-UYf"/>
-                                    <constraint firstAttribute="width" constant="240" id="Qpl-4X-InZ"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-bX-6ZB">
-                                <rect key="frame" x="0.0" y="192" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hi8-Vu-3a0" id="Fhn-bT-lie"/>
@@ -124,14 +110,10 @@
                         <constraints>
                             <constraint firstItem="JBU-bX-6ZB" firstAttribute="bottom" secondItem="Oju-zu-EQD" secondAttribute="bottom" id="2Bv-zs-yUZ"/>
                             <constraint firstItem="JBU-bX-6ZB" firstAttribute="trailing" secondItem="Oju-zu-EQD" secondAttribute="trailing" id="49f-pv-GAv"/>
-                            <constraint firstItem="Ele-mg-HMV" firstAttribute="top" secondItem="Oju-zu-EQD" secondAttribute="top" constant="18" id="57t-a6-EQg"/>
                             <constraint firstItem="JBU-bX-6ZB" firstAttribute="leading" secondItem="Oju-zu-EQD" secondAttribute="leading" id="7tt-Qu-Vay"/>
-                            <constraint firstItem="JBU-bX-6ZB" firstAttribute="top" secondItem="GbE-SU-ZFE" secondAttribute="bottom" constant="40" id="AsH-jq-BtJ"/>
-                            <constraint firstItem="Ele-mg-HMV" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="IwH-Ed-WRE"/>
                             <constraint firstItem="FH9-sC-E9c" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="aOK-8F-pwY"/>
                             <constraint firstItem="FH9-sC-E9c" firstAttribute="centerY" secondItem="Oju-zu-EQD" secondAttribute="centerY" id="foM-Qx-nPy"/>
-                            <constraint firstItem="GbE-SU-ZFE" firstAttribute="top" secondItem="Ele-mg-HMV" secondAttribute="bottom" constant="8" id="iME-eu-gX5"/>
-                            <constraint firstItem="GbE-SU-ZFE" firstAttribute="centerX" secondItem="Oju-zu-EQD" secondAttribute="centerX" id="oNS-Q5-suC"/>
+                            <constraint firstItem="JBU-bX-6ZB" firstAttribute="top" secondItem="Oju-zu-EQD" secondAttribute="top" id="iuq-b2-LAe"/>
                             <constraint firstItem="JBU-bX-6ZB" firstAttribute="bottom" secondItem="Oju-zu-EQD" secondAttribute="bottom" id="qGw-zX-IMl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Oju-zu-EQD"/>
@@ -204,7 +186,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epm-Is-smf">
-                                                    <rect key="frame" x="20" y="35.5" width="335" height="29"/>
+                                                    <rect key="frame" x="20" y="35.5" width="374" height="29"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

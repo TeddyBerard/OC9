@@ -56,7 +56,7 @@
             BlueprintIdentifier = "3A754A8622C1323900BBA6D2"
             BuildableName = "Travel.app"
             BlueprintName = "Travel"
-            ReferencedContainer = "container:../../../../../../../Documents/OpenClassRooms/OC9/Travel/Travel.xcodeproj">
+            ReferencedContainer = "container:Travel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,7 +79,7 @@
             BlueprintIdentifier = "3A754A8622C1323900BBA6D2"
             BuildableName = "Travel.app"
             BlueprintName = "Travel"
-            ReferencedContainer = "container:../../../../../../../Documents/OpenClassRooms/OC9/Travel/Travel.xcodeproj">
+            ReferencedContainer = "container:Travel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
