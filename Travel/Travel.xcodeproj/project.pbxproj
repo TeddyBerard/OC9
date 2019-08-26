@@ -53,7 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A247FA622F88D3B0097DB8D /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityList.swift; path = "../../../../../../../../../../../../System/Volumes/Data/Users/teddyberard/Library/CloudStorage/iCloud Drive/Documents/OpenClassRooms/OC9/Travel/Travel/Model/Weather/CityList.swift"; sourceTree = "<group>"; };
+		3A247FA622F88D3B0097DB8D /* CityList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityList.swift; sourceTree = "<group>"; };
 		3A647AD522DB9D6E00FE69EF /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		3A754A8722C1323900BBA6D2 /* Travel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A754A8A22C1323900BBA6D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -74,17 +74,17 @@
 		3A967EB4230860E8002754DD /* WeatherHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherHeaderView.xib; sourceTree = "<group>"; };
 		3A967EB6230860FD002754DD /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
 		3A9BD93122E9DAD100116F53 /* ListCity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ListCity.json; sourceTree = "<group>"; };
-		3A9DEB9622FDE030006F83CF /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Search.xcdatamodel; sourceTree = "<group>"; };
-		3AB0856C22E855BE00194E8B /* SearchCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchCityViewController.swift; path = "../../../../../../../../../../../../System/Volumes/Data/Users/teddyberard/Library/CloudStorage/iCloud Drive/Documents/OpenClassRooms/OC9/Travel/Travel/Controllers/Weather/SearchCityViewController.swift"; sourceTree = "<group>"; };
+		3A9DEB9622FDE030006F83CF /* Search.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; name = Search.xcdatamodel; path = "Travel/Ressource/Core Data/Search.xcdatamodel"; sourceTree = SOURCE_ROOT; };
+		3AB0856C22E855BE00194E8B /* SearchCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityViewController.swift; sourceTree = "<group>"; };
 		3AB1B543230DE3A80042ECD9 /* SettingsExchangeView2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExchangeView2Controller.swift; sourceTree = "<group>"; };
 		3AB1B544230DE3A90042ECD9 /* SettingsExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsExchangeViewController.xib; sourceTree = "<group>"; };
 		3AB1B547230DE7830042ECD9 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
-		3AC9608022EF4CC10045887F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = City.swift; path = "../../../../../../../../../../../../System/Volumes/Data/Users/teddyberard/Library/CloudStorage/iCloud Drive/Documents/OpenClassRooms/OC9/Travel/Travel/Model/Weather/City.swift"; sourceTree = "<group>"; };
+		3AC9608022EF4CC10045887F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		3AD89A2122CE886000A6A39A /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		3AD89A2222CE886000A6A39A /* WeatherTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherTableViewCell.xib; sourceTree = "<group>"; };
 		3AD89A2622CFF87000A6A39A /* WeatherCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCity.swift; sourceTree = "<group>"; };
 		3AD89A2822CFFDD200A6A39A /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		3AEF30A422E89AB0002849BF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = "../../../../../../../../../../../../System/Volumes/Data/Users/teddyberard/Library/CloudStorage/iCloud Drive/Documents/OpenClassRooms/OC9/Travel/Travel/View/SearchTableViewCell/SearchTableViewCell.swift"; sourceTree = "<group>"; };
+		3AEF30A422E89AB0002849BF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
