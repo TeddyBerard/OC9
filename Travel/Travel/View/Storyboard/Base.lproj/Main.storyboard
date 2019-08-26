@@ -15,17 +15,17 @@
             <objects>
                 <viewController storyboardIdentifier="ExchangeRateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Cl-YR-OUU" customClass="ExchangeViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6UJ-yb-XWl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAUX DE CHANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws3-9n-WfY">
-                                <rect key="frame" x="91.5" y="106" width="231" height="34"/>
+                                <rect key="frame" x="91.5" y="18" width="231" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rON-Lj-5Wn">
-                                <rect key="frame" x="87" y="148" width="240" height="4"/>
+                                <rect key="frame" x="87" y="60" width="240" height="4"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="94W-n6-Xa9"/>
@@ -33,7 +33,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-oU-BAD">
-                                <rect key="frame" x="191" y="285" width="32" height="32"/>
+                                <rect key="frame" x="191" y="197" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="9t5-jg-LMd"/>
                                     <constraint firstAttribute="width" constant="32" id="m12-fE-QlY"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5F-Ke-2c0">
-                                <rect key="frame" x="165" y="442" width="84" height="35"/>
+                                <rect key="frame" x="165" y="354" width="84" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Convertir">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,7 +54,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EUR" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PrC-Zf-6ih">
-                                <rect key="frame" x="28" y="180" width="358" height="65"/>
+                                <rect key="frame" x="28" y="92" width="358" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="LMd-dx-bJL"/>
                                 </constraints>
@@ -63,7 +63,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USD" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-bc-Ozc">
-                                <rect key="frame" x="28" y="357" width="358" height="65"/>
+                                <rect key="frame" x="28" y="269" width="358" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="eSt-fp-Rik"/>
                                 </constraints>
@@ -93,7 +93,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jPX-7e-lqj">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="agb-Cw-j6h">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="SettingAction:" destination="0Cl-YR-OUU" id="dv7-XA-5UT"/>
                             </connections>
@@ -154,11 +154,11 @@
             <objects>
                 <viewController storyboardIdentifier="WeatherViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hi8-Vu-3a0" customClass="WeatherViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6UP-jZ-LFs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JBU-bX-6ZB">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hi8-Vu-3a0" id="Fhn-bT-lie"/>
@@ -166,7 +166,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="FH9-sC-E9c">
-                                <rect key="frame" x="197" y="440.5" width="20" height="20"/>
+                                <rect key="frame" x="197" y="352.5" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -183,7 +183,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XBF-OH-ybp">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zmq-a0-qnF">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addCity:" destination="hi8-Vu-3a0" id="72S-FG-BeF"/>
                             </connections>
@@ -226,7 +226,10 @@
                                 </constraints>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                <connections>
+                                    <action selector="editingChangedTextField:" destination="WCZ-mY-G0z" eventType="editingChanged" id="Y3u-fR-rqf"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-SB-jXw">
                                 <rect key="frame" x="346" y="44" width="48" height="30"/>
@@ -271,18 +274,6 @@
                                     <outlet property="delegate" destination="WCZ-mY-G0z" id="7g6-Sd-fjs"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sg-IQ-Y2i">
-                                <rect key="frame" x="16" y="44" width="24" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="8lw-lk-NyR"/>
-                                    <constraint firstAttribute="width" constant="24" id="SjS-9a-R4V"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="search"/>
-                                <connections>
-                                    <action selector="searchAction:" destination="WCZ-mY-G0z" eventType="touchUpInside" id="Hvk-Rt-PRD"/>
-                                </connections>
-                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fl6-el-SJJ">
                                 <rect key="frame" x="197" y="418.5" width="20" height="20"/>
                             </activityIndicatorView>
@@ -292,7 +283,6 @@
                             <constraint firstItem="dtu-5P-coj" firstAttribute="leading" secondItem="BvR-tQ-6hK" secondAttribute="leading" id="2D1-IQ-NUD"/>
                             <constraint firstItem="dtu-5P-coj" firstAttribute="bottom" secondItem="BvR-tQ-6hK" secondAttribute="bottom" id="Ce2-bp-TaL"/>
                             <constraint firstItem="fl6-el-SJJ" firstAttribute="centerX" secondItem="BvR-tQ-6hK" secondAttribute="centerX" id="GPa-Xs-aoU"/>
-                            <constraint firstItem="7sg-IQ-Y2i" firstAttribute="top" secondItem="BvR-tQ-6hK" secondAttribute="top" id="KJo-Lt-sht"/>
                             <constraint firstItem="IRV-jD-b0s" firstAttribute="top" secondItem="LNS-eB-maM" secondAttribute="bottom" constant="8" id="KOt-UT-e8S"/>
                             <constraint firstItem="LNS-eB-maM" firstAttribute="leading" secondItem="BvR-tQ-6hK" secondAttribute="leading" constant="8" id="Obk-Je-lqL"/>
                             <constraint firstItem="P7o-N7-36W" firstAttribute="leading" secondItem="Gr7-09-F8o" secondAttribute="leading" id="RiD-dh-A2Q"/>
@@ -306,7 +296,6 @@
                             <constraint firstItem="LNS-eB-maM" firstAttribute="top" secondItem="f0v-SB-jXw" secondAttribute="bottom" constant="16" id="pd3-ql-JUU"/>
                             <constraint firstItem="dtu-5P-coj" firstAttribute="top" secondItem="IRV-jD-b0s" secondAttribute="bottom" constant="16" id="s61-w6-L1g"/>
                             <constraint firstItem="BvR-tQ-6hK" firstAttribute="trailing" secondItem="f0v-SB-jXw" secondAttribute="trailing" constant="20" id="tQy-Lu-QIS"/>
-                            <constraint firstItem="7sg-IQ-Y2i" firstAttribute="leading" secondItem="BvR-tQ-6hK" secondAttribute="leading" constant="16" id="uud-2V-kOd"/>
                             <constraint firstItem="IRV-jD-b0s" firstAttribute="leading" secondItem="BvR-tQ-6hK" secondAttribute="leading" constant="12" id="vtt-KB-UYi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BvR-tQ-6hK"/>
@@ -351,9 +340,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5ct-ME-CDs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Météo" image="sun" id="fMQ-Dv-CzU"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bYc-iQ-nsm">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="bYc-iQ-nsm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -370,9 +360,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2El-fu-uMM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Convertiseur" image="euro" id="6KE-tV-g6D"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PME-Kg-dEF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="PME-Kg-dEF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -387,7 +378,6 @@
     <resources>
         <image name="double-arrow" width="64" height="64"/>
         <image name="euro" width="32" height="32"/>
-        <image name="search" width="32" height="32"/>
         <image name="sun" width="32" height="32"/>
         <image name="translation" width="32" height="32"/>
     </resources>

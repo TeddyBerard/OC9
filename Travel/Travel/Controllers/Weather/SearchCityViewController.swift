@@ -32,8 +32,8 @@ class SearchCityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        countResultLabel.text = ""
+
+        setupView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +44,13 @@ class SearchCityViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+
+    func setupView() {
+        countResultLabel.text = ""
+        searchTextField.delegate = self
+    }
+
+
     
     func isDownloadingCities() {
         if !alreadySaved {
@@ -71,10 +78,8 @@ class SearchCityViewController: UIViewController {
 
         }
     }
-    
-    // MARK: - IBAction
-    
-    @IBAction func searchAction(_ sender: Any) {
+
+    func searchCities() {
         guard let search = searchTextField.text,
             !search.isEmpty,
             alreadySaved else {
@@ -83,13 +88,15 @@ class SearchCityViewController: UIViewController {
 
         cities = City.searchCity(by: search).sorted(by: { guard let firstCountry = $0.country,
             let secondCountry = $1.country else { return false}
-            
+
             return firstCountry > secondCountry
         })
         countResultLabel.text = "Resulat(\(cities.count))"
         searchTableView.reloadData()
     }
     
+    // MARK: - IBAction
+
     @IBAction func closeAction(_ sender: Any) {
         guard alreadySaved else { return }
         
@@ -115,6 +122,29 @@ extension SearchCityViewController: UITableViewDelegate, UITableViewDataSource {
         delegate?.addCity(with: cities[indexPath.row].id)
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+}
+
+// MARK: - UITextField
+
+extension SearchCityViewController: UITextFieldDelegate {
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        searchCities()
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        cities = []
+        searchTableView.reloadData()
+        return true
+    }
+
+    @IBAction func editingChangedTextField(_ sender: Any) {
+        searchCities()
+    }
+
 }
