@@ -55,9 +55,9 @@ class City: NSManagedObject {
     
     static func searchCity(by keyword:String) -> [City] {
         let request: NSFetchRequest<City> = City.fetchRequest()
-        request.predicate = NSPredicate(format: "name == %@", keyword )
+        request.predicate = NSPredicate(format: "name BEGINSWITH [c] %@", keyword)
         request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-        request.fetchLimit = 30
+        request.fetchLimit = 50
         guard let items = try? AppDelegate.viewContext.fetch(request) else { return [] }
         return items
     }
