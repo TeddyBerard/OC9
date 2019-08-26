@@ -10,43 +10,106 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Convertiseur-->
+        <!--Exchange View Controller-->
         <scene sceneID="eSH-Hw-pDq">
             <objects>
-                <viewController storyboardIdentifier="ExchangeRateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Cl-YR-OUU" customClass="ExchangeRateViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExchangeRateViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0Cl-YR-OUU" customClass="ExchangeViewController" customModule="Travel" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6UJ-yb-XWl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAUX DE CHANGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ws3-9n-WfY">
-                                <rect key="frame" x="91.5" y="62" width="231" height="34"/>
+                                <rect key="frame" x="91.5" y="106" width="231" height="34"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rON-Lj-5Wn">
-                                <rect key="frame" x="87" y="104" width="240" height="4"/>
+                                <rect key="frame" x="87" y="148" width="240" height="4"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="94W-n6-Xa9"/>
                                     <constraint firstAttribute="height" constant="4" id="tOK-DT-Lgq"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SIU-oU-BAD">
+                                <rect key="frame" x="191" y="285" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="9t5-jg-LMd"/>
+                                    <constraint firstAttribute="width" constant="32" id="m12-fE-QlY"/>
+                                </constraints>
+                                <state key="normal" image="double-arrow"/>
+                                <connections>
+                                    <action selector="switchAction:" destination="0Cl-YR-OUU" eventType="touchUpInside" id="M0r-Yi-d5j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D5F-Ke-2c0">
+                                <rect key="frame" x="165" y="442" width="84" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Convertir">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="convertAction:" destination="0Cl-YR-OUU" eventType="touchUpInside" id="M24-jz-Aj8"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EUR" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PrC-Zf-6ih">
+                                <rect key="frame" x="28" y="180" width="358" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="LMd-dx-bJL"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="USD" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qTo-bc-Ozc">
+                                <rect key="frame" x="28" y="357" width="358" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="eSt-fp-Rik"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="opj-gp-UIW" firstAttribute="trailing" secondItem="PrC-Zf-6ih" secondAttribute="trailing" constant="28" id="1CL-z5-5vC"/>
                             <constraint firstItem="rON-Lj-5Wn" firstAttribute="centerX" secondItem="opj-gp-UIW" secondAttribute="centerX" id="7pq-Vb-Zdf"/>
                             <constraint firstItem="Ws3-9n-WfY" firstAttribute="top" secondItem="opj-gp-UIW" secondAttribute="top" constant="18" id="HLn-v4-uIb"/>
+                            <constraint firstItem="SIU-oU-BAD" firstAttribute="top" secondItem="PrC-Zf-6ih" secondAttribute="bottom" constant="40" id="Kxc-N1-kad"/>
+                            <constraint firstItem="qTo-bc-Ozc" firstAttribute="top" secondItem="SIU-oU-BAD" secondAttribute="bottom" constant="40" id="Poo-IO-j2t"/>
+                            <constraint firstItem="qTo-bc-Ozc" firstAttribute="leading" secondItem="opj-gp-UIW" secondAttribute="leading" constant="28" id="Q8m-xo-lo5"/>
+                            <constraint firstItem="D5F-Ke-2c0" firstAttribute="centerX" secondItem="opj-gp-UIW" secondAttribute="centerX" id="bRZ-vY-n3z"/>
+                            <constraint firstItem="opj-gp-UIW" firstAttribute="trailing" secondItem="qTo-bc-Ozc" secondAttribute="trailing" constant="28" id="fEF-sf-B9u"/>
                             <constraint firstItem="Ws3-9n-WfY" firstAttribute="centerX" secondItem="opj-gp-UIW" secondAttribute="centerX" id="gSx-xY-5YU"/>
                             <constraint firstItem="rON-Lj-5Wn" firstAttribute="top" secondItem="Ws3-9n-WfY" secondAttribute="bottom" constant="8" id="nPK-vZ-rq2"/>
+                            <constraint firstItem="SIU-oU-BAD" firstAttribute="centerX" secondItem="opj-gp-UIW" secondAttribute="centerX" id="pcd-SO-nSh"/>
+                            <constraint firstItem="D5F-Ke-2c0" firstAttribute="top" secondItem="qTo-bc-Ozc" secondAttribute="bottom" constant="20" id="tEA-sD-VWq"/>
+                            <constraint firstItem="PrC-Zf-6ih" firstAttribute="top" secondItem="rON-Lj-5Wn" secondAttribute="bottom" constant="28" id="xIj-x0-guE"/>
+                            <constraint firstItem="PrC-Zf-6ih" firstAttribute="leading" secondItem="opj-gp-UIW" secondAttribute="leading" constant="28" id="z3Z-fK-Adk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="opj-gp-UIW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Convertiseur" image="euro" id="6KE-tV-g6D"/>
+                    <navigationItem key="navigationItem" id="jPX-7e-lqj">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="agb-Cw-j6h">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="SettingAction:" destination="0Cl-YR-OUU" id="dv7-XA-5UT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bottomMoneyTextField" destination="qTo-bc-Ozc" id="1gC-i7-UYm"/>
+                        <outlet property="convertButton" destination="D5F-Ke-2c0" id="CHN-S3-1mK"/>
+                        <outlet property="settingBarButtonItem" destination="agb-Cw-j6h" id="mnU-Dy-CQ4"/>
+                        <outlet property="switchButton" destination="SIU-oU-BAD" id="6Uh-Lx-qJB"/>
+                        <outlet property="topMoneyTextField" destination="PrC-Zf-6ih" id="cod-ea-PUI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ke7-96-gNE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-600" y="839.73214285714278"/>
+            <point key="canvasLocation" x="-1546" y="840"/>
         </scene>
         <!--Traduction-->
         <scene sceneID="n1v-Mg-dfj">
@@ -84,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2M-2z-OHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="839.73214285714278"/>
+            <point key="canvasLocation" x="138" y="840"/>
         </scene>
         <!--Weather View Controller-->
         <scene sceneID="4sd-ui-QaF">
@@ -133,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uet-yG-7QF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1837.68115942029" y="839.73214285714278"/>
+            <point key="canvasLocation" x="1854" y="840"/>
         </scene>
         <!--Search City View Controller-->
         <scene sceneID="LRS-Mz-xWw">
@@ -259,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBk-UU-ctV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2605.7971014492755" y="839.73214285714278"/>
+            <point key="canvasLocation" x="1854" y="159"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8ax-Ni-vxP">
@@ -272,7 +335,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="0Cl-YR-OUU" kind="relationship" relationship="viewControllers" id="OHc-h6-pxG"/>
+                        <segue destination="2El-fu-uMM" kind="relationship" relationship="viewControllers" id="OHc-h6-pxG"/>
                         <segue destination="skT-IG-2Ez" kind="relationship" relationship="viewControllers" id="e0N-TJ-goa"/>
                         <segue destination="5ct-ME-CDs" kind="relationship" relationship="viewControllers" id="LxZ-HX-L42"/>
                     </connections>
@@ -298,10 +361,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdo-xq-ako" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="927.536231884058" y="839.73214285714278"/>
+            <point key="canvasLocation" x="864" y="840"/>
+        </scene>
+        <!--Convertiseur-->
+        <scene sceneID="WQR-vd-FLe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2El-fu-uMM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Convertiseur" image="euro" id="6KE-tV-g6D"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PME-Kg-dEF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Cl-YR-OUU" kind="relationship" relationship="rootViewController" id="Vhy-OL-Isd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qqp-5e-186" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="840"/>
         </scene>
     </scenes>
     <resources>
+        <image name="double-arrow" width="64" height="64"/>
         <image name="euro" width="32" height="32"/>
         <image name="search" width="32" height="32"/>
         <image name="sun" width="32" height="32"/>
