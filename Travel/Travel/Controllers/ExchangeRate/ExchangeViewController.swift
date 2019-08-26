@@ -23,7 +23,7 @@ class ExchangeViewController: UIViewController {
         case bottom
     }
     
-    var activeCurrency: ActiveCurrency = .top
+    var activeCurrency: ActiveCurrency = .bottom
     var topCurrency: String = "EUR" {
         didSet {
             setupTextField(with: topMoneyTextField, isActive: true, actualCurrency: topCurrency)
