@@ -24,12 +24,14 @@ class ExchangeViewController: UIViewController {
     }
     
     var activeCurrency: ActiveCurrency = .bottom
+    private var symboles: [String] = []
+    private var rates: ExchangeCurrencies? = nil
     var topCurrency: String = "EUR" {
         didSet {
             setupTextField(with: topMoneyTextField, isActive: true, actualCurrency: topCurrency)
         }
     }
-    var bottomCurrency: String = "USD" {
+    var bottomCurrency: String = "GBP" {
         didSet{
             setupTextField(with: bottomMoneyTextField, isActive: false, actualCurrency: bottomCurrency)
         }
@@ -39,6 +41,8 @@ class ExchangeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSymboles()
+        setupCurrencies()
         setupTextField(with: topMoneyTextField, isActive: true, actualCurrency: topCurrency)
         setupTextField(with: bottomMoneyTextField, isActive: false, actualCurrency: bottomCurrency)
     }
@@ -68,6 +72,38 @@ class ExchangeViewController: UIViewController {
                                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         }
     }
+
+    // MARK: - Setup Exchange
+
+    fileprivate func setupSymboles() {
+        Exchange.shared.downloadSymboles(completion: { [weak self] symboles, error  in
+            guard let symboles = symboles else {
+                return
+            }
+            self?.symboles = symboles
+        })
+    }
+
+    fileprivate func setupCurrencies() {
+        Exchange.shared.dowloadCurrencies { [weak self] (rates, error) in
+            self?.rates = rates
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    func displayCustomError(message: String) {
+        guard self.presentedViewController == nil else { return }
+
+        let alertController = UIAlertController(title: Const.ErrorAlert.errorOccured,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let close = UIAlertAction(title: "Fermer", style: .cancel)
+        alertController.addAction(close)
+        self.present(alertController, animated: true, completion: nil)
+    }
     
     // MARK: - IBAction
     
@@ -75,16 +111,46 @@ class ExchangeViewController: UIViewController {
         switchTextField()
     }
     
-    
-    
+
     @IBAction func convertAction(_ sender: Any) {
-        
+        guard rates != nil else {
+            setupCurrencies()
+            displayCustomError(message: Const.ErrorAlert.errorCurrencies)
+            return
+        }
+
+        if topMoneyTextField.isEnabled,
+            let stringAmound = topMoneyTextField.text,
+            let amound = Double(stringAmound) {
+            bottomMoneyTextField.text = String(format: "%.2f",
+                                               Exchange.shared.getRate(amound: amound, first: topCurrency,
+                                                                       second: bottomCurrency,
+                                                                       rates: rates?.rates).rounded(toPlaces: 2))
+        } else if bottomMoneyTextField.isEnabled,
+            let stringAmound = bottomMoneyTextField.text,
+            let amound = Double(stringAmound) {
+            topMoneyTextField.text = String(format: "%.2f",
+                                               Exchange.shared.getRate(amound: amound, first: bottomCurrency,
+                                                                       second: topCurrency,
+                                                                       rates: rates?.rates).rounded(toPlaces: 2))
+        }
     }
     
     @IBAction func SettingAction(_ sender: Any) {
+        guard !symboles.isEmpty else {
+            setupSymboles()
+            displayCustomError(message: Const.ErrorAlert.errorSymboles)
+            return
+        }
+
+        self.definesPresentationContext = true
         let modal = SettingsExchangeViewController()
         modal.delegate = self
+        modal.symboles = symboles.sorted(by: { $0 < $1 })
         modal.modalPresentationStyle = .overCurrentContext
+        modal.date = rates?.date
+        modal.firstSymbole = topCurrency
+        modal.secondSymbole = bottomCurrency
         present(modal, animated: true, completion: nil)
     }
 }

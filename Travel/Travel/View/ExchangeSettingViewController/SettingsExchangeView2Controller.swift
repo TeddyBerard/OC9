@@ -21,9 +21,13 @@ class SettingsExchangeViewController: UIViewController {
     @IBOutlet weak var validateButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var downloadDateLabel: UILabel!
 
     weak var delegate: SettingsExchangeViewControllerDelegate?
-    var currencies: [String] = ["EUR", "JPY", "USD", "ADF", "BMD", "DME"]
+    var symboles: [String] = []
+    var firstSymbole: String?
+    var secondSymbole: String?
+    var date: String?
 
     // MARK: - Cycle Life
     
@@ -39,6 +43,8 @@ class SettingsExchangeViewController: UIViewController {
         super.viewDidAppear(animated)
         
         setupPicker()
+        downloadDateLabel.text = date
+        downloadDateLabel.isHidden = false
     }
 
     func setupView() {
@@ -50,6 +56,7 @@ class SettingsExchangeViewController: UIViewController {
             topMoneyPickerView.subviews[index].isHidden = true
             bottomMoneyPickerView.subviews[index].isHidden = true
         }
+        setupSymbole()
     }
 
     func setupButton() {
@@ -57,6 +64,19 @@ class SettingsExchangeViewController: UIViewController {
         resetButton.layer.borderWidth = 1
         validateButton.layer.borderColor = UIColor.black.cgColor
         resetButton.layer.borderColor = UIColor.black.cgColor
+    }
+
+    func setupSymbole() {
+        guard let first = firstSymbole, let second = secondSymbole else {
+            return
+        }
+
+        topMoneyPickerView.selectRow(symboles.firstIndex(where: { $0 == first }) ?? 0,
+                                     inComponent: 0,
+                                     animated: true)
+        bottomMoneyPickerView.selectRow(symboles.firstIndex(where: { $0 == second }) ?? 0,
+                                     inComponent: 0,
+                                     animated: true)
     }
     
     // MARK: - IBAction
@@ -68,13 +88,13 @@ class SettingsExchangeViewController: UIViewController {
     }
     
     @IBAction func validateAction(_ sender: Any) {
-        delegate?.saveCurrencies(topCurrency: currencies[topMoneyPickerView.selectedRow(inComponent: 0)],
-                                 bottomCurrency: currencies[bottomMoneyPickerView.selectedRow(inComponent: 0)])
+        delegate?.saveCurrencies(topCurrency: symboles[topMoneyPickerView.selectedRow(inComponent: 0)],
+                                 bottomCurrency: symboles[bottomMoneyPickerView.selectedRow(inComponent: 0)])
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func resetAction(_ sender: Any) {
-        
+        setupSymbole()
     }
     
 }
@@ -85,7 +105,7 @@ extension SettingsExchangeViewController: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currencies.count
+        return symboles.count
     }
     
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
@@ -93,16 +113,7 @@ extension SettingsExchangeViewController: UIPickerViewDelegate, UIPickerViewData
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencies[row]
+        return symboles[row]
     }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if pickerView == topMoneyPickerView {
-            
-        } else {
 
-        }
-    }
-    
-    
 }

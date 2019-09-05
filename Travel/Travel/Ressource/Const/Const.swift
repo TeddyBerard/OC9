@@ -25,6 +25,8 @@ struct Const {
         static let errorDefault = "Si le probème persiste veuillez nous contacter."
         static let errorCity = "Veuillez vérifier l'orthographe de la ville souhaiter."
         static let errorAlreayPresent = "Cette ville est déjà présente dans votre liste."
+        static let errorSymboles = "Les symboles ne sont pas téléchargés veuillez réessayez ultérieurement."
+        static let errorCurrencies = "Les taux ne sont pas télécharger veuillez réessayez ultérieurement."
     }
     
 }

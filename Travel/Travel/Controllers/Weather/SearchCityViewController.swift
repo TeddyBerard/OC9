@@ -110,7 +110,8 @@ extension SearchCityViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell") as? SearchTableViewCell else { return UITableViewCell() }
+        guard let cell = searchTableView.dequeueReusableCell(withIdentifier: "searchCell") as?
+            SearchTableViewCell else { return UITableViewCell() }
         
         cell.updateText(cityName: cities[indexPath.row].name,
                         country: cities[indexPath.row].country)

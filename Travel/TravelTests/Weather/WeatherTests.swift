@@ -140,21 +140,4 @@ class WeatherTests: XCTestCase {
         
         XCTAssertEqual(error as? Weather.WeatherError, Weather.WeatherError.wrongJson)
     }
-    
-    
-    // Disable network to test
-    func testNoConnection() {
-        let expectation = self.expectation(description: "IncorrectCity")
-        var error: Error? = nil
-        
-        weather.download(city: -1, completion: { _ in }, completionErr: { err in
-            error = err
-            expectation.fulfill()
-        })
-        
-        waitForExpectations(timeout: 5, handler: nil)
-        
-        XCTAssertEqual(error as? Weather.WeatherError, Weather.WeatherError.noConnection)
-    }
-
 }
