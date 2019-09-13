@@ -10,7 +10,7 @@ import Foundation
 
 class ExchangeSymbole: Codable {
     let succes: Bool?
-    let symbols: [String:String]?
+    let symbols: [String: String]?
 
     private enum CodingKeys: String, CodingKey {
         case succes

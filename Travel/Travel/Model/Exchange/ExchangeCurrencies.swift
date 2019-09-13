@@ -10,7 +10,7 @@ import Foundation
 
 class ExchangeCurrencies: Codable {
     let date: String?
-    let rates: [String:Double]?
+    let rates: [String: Double]?
 
     private enum CodingKeys: String, CodingKey {
         case date

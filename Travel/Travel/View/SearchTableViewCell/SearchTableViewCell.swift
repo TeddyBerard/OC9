@@ -11,7 +11,7 @@ import UIKit
 class SearchTableViewCell: UITableViewCell {
 
     @IBOutlet weak var searchLabel: UILabel!
-        
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,9 +22,9 @@ class SearchTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func updateText(cityName: String?, country: String?) {
-        
+
         searchLabel.text = "\(cityName!), \(country!)"
     }
 

@@ -16,7 +16,6 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translatedTextView: UITextView!
     @IBOutlet weak var translateButton: UIButton!
 
-
     // MARK: - Cycle Life
 
     override func viewDidLoad() {
@@ -36,7 +35,21 @@ class TranslationViewController: UIViewController {
     }
 
     @IBAction func translateAction(_ sender: Any) {
+        guard wantedTranslatedTextView.text != "" else {
+            return
+        }
 
+        Translate.shared.getTranslate(text: wantedTranslatedTextView.text, source: "fr", target: "en",
+                                      completion: { textTranslated, err  in
+                                        guard err == nil else {
+                                            return
+                                        }
+
+                                        DispatchQueue.main.async {
+                                            self.view.endEditing(true)
+                                            self.translatedTextView.text = textTranslated
+                                        }
+        })
     }
 
     @IBAction func clearAction(_ sender: Any) {

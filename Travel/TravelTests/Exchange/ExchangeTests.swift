@@ -28,7 +28,7 @@ class ExchangeTests: XCTestCase {
         let expectation = self.expectation(description: "testDownloadSymboles")
         var symboles: [String]?
 
-        exchange.downloadSymboles { (symbole, nil) in
+        exchange.downloadSymboles { (symbole, _) in
             symboles = symbole
             expectation.fulfill()
         }
@@ -41,7 +41,7 @@ class ExchangeTests: XCTestCase {
         let expectation = self.expectation(description: "testDownloadCurrencies")
         var rates: [String: Double]?
 
-        exchange.dowloadCurrencies { (rate, nil) in
+        exchange.dowloadCurrencies { (rate, _) in
             rates = rate?.rates
             expectation.fulfill()
         }
@@ -52,7 +52,7 @@ class ExchangeTests: XCTestCase {
 
     func testWrongUrlDowloadCurrencies() {
         let expectation = self.expectation(description: "testWrongUrlDowloadCurrencies")
-        var error: Error? = nil
+        var error: Error?
 
         exchange.baseURL = "%"
         exchange.dowloadCurrencies { (_, err) in
@@ -67,10 +67,10 @@ class ExchangeTests: XCTestCase {
 
     func testWrongUrlDowloadSymboles() {
         let expectation = self.expectation(description: "testWrongUrlDowloadSymboles")
-        var error: Error? = nil
+        var error: Error?
 
         exchange.baseURL = "%"
-        exchange.downloadSymboles { (nil, err) in
+        exchange.downloadSymboles { (_, err) in
             error = err
             expectation.fulfill()
         }
@@ -82,10 +82,10 @@ class ExchangeTests: XCTestCase {
 
     func testNoDateAvailableSymboles() {
         let expectation = self.expectation(description: "testNoDateAvailableSymboles")
-        var error: Error? = nil
+        var error: Error?
 
         exchange.baseURL = "https://"
-        exchange.downloadSymboles { (nil, err) in
+        exchange.downloadSymboles { (_, err) in
             error = err
             expectation.fulfill()
         }
@@ -97,7 +97,7 @@ class ExchangeTests: XCTestCase {
 
     func testNoDateAvailableCurrencies() {
         let expectation = self.expectation(description: "testNoDateAvailableCurrencies")
-        var error: Error? = nil
+        var error: Error?
 
         exchange.baseURL = "https://"
         exchange.dowloadCurrencies { (_, err) in
@@ -109,7 +109,6 @@ class ExchangeTests: XCTestCase {
 
         XCTAssertEqual(error as? Exchange.ExchangeError, Exchange.ExchangeError.noData)
     }
-
 
     // MARK: - Utils
 
@@ -123,7 +122,7 @@ class ExchangeTests: XCTestCase {
 
     func testGetRates() {
         let symboles: [String] = ["EUR", "USD"]
-        let rates: [String:Double] = ["EUR" : 1 , "USD" : 10]
+        let rates: [String: Double] = ["EUR": 1, "USD": 10]
 
         XCTAssertEqual(exchange.getRates(first: symboles[0], second: symboles[1], rates: rates), 10)
         XCTAssertEqual(exchange.getRates(first: symboles[1], second: symboles[0], rates: rates), 10)
@@ -132,7 +131,7 @@ class ExchangeTests: XCTestCase {
 
     func testGetRate() {
         let symboles: [String] = ["EUR", "USD", "GBP"]
-        let rates: [String:Double] = ["EUR" : 1 , "USD" : 10, "GBP" : 4]
+        let rates: [String: Double] = ["EUR": 1, "USD": 10, "GBP": 4]
 
         XCTAssertEqual(exchange.getRate(amound: 1, first: symboles[0], second: symboles[1], rates: rates), 10)
         XCTAssertEqual(exchange.getRate(amound: 1, first: symboles[1], second: symboles[0], rates: rates), 0.1)
@@ -144,7 +143,7 @@ class ExchangeTests: XCTestCase {
 
     func testConvertOtherCurrencies() {
         let symboles: [String] = ["GBP", "USD"]
-        let rates: [String:Double] = ["GBP" : 4, "USD" : 10]
+        let rates: [String: Double] = ["GBP": 4, "USD": 10]
 
         XCTAssertEqual(exchange.convertOtherCurrencies(amound: 1, first: symboles[0],
                                                        second: symboles[1], rates: rates), 2.5)
@@ -154,7 +153,7 @@ class ExchangeTests: XCTestCase {
 
     func testConvertCurrencies() {
         let symboles: [String] = ["EUR", "USD"]
-        let rates: [String:Double] = ["EUR" : 1, "USD" : 10]
+        let rates: [String: Double] = ["EUR": 1, "USD": 10]
 
         XCTAssertEqual(exchange.convertCurrencies(amound: 1, first: symboles[0], second: symboles[1],
                                                   rates: rates, isReverse: true), 10)

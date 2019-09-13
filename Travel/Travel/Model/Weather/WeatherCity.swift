@@ -9,14 +9,14 @@
 import Foundation
 
 struct WeatherCity: Codable {
-    
+
     let name: String?
     let statusCode: Int?
     let statusCodeErr: String?
     let weather: [WeatherDescription]?
     let main: WeatherMain?
     let id: Double?
-    
+
     private enum CodingKeys: String, CodingKey {
         case name = "name"
         case weather = "weather"
@@ -24,10 +24,10 @@ struct WeatherCity: Codable {
         case statusCode = "cod"
         case id
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         name = try? container.decode(String.self, forKey: .name)
         statusCode = try? container.decode(Int.self, forKey: .statusCode)
         statusCodeErr = try? container.decode(String.self, forKey: .statusCode)
@@ -43,7 +43,7 @@ struct WeatherMain: Codable {
     let tempMin: Float?
     let pressure: Float?
     let humidity: Float?
-    
+
     private enum CodingKeys: String, CodingKey {
         case temp = "temp"
         case tempMax = "temp_max"
@@ -51,10 +51,10 @@ struct WeatherMain: Codable {
         case pressure = "pressure"
         case humidity = "humidity"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         temp = try? container.decode(Float.self, forKey: .temp)
         tempMax = try? container.decode(Float.self, forKey: .tempMax)
         tempMin = try? container.decode(Float.self, forKey: .tempMin)
@@ -66,12 +66,12 @@ struct WeatherMain: Codable {
 struct WeatherDescription: Codable {
     let description: String?
     let icon: String?
-    
+
     private enum CodingKeys: String, CodingKey {
         case description
         case icon
     }
-    
+
     private enum iconImage: String {
         case clearSkyDay = "01d"
         case clearSkyNight = "01n"
@@ -92,18 +92,18 @@ struct WeatherDescription: Codable {
         case mistDay = "50d"
         case mistNight = "50n"
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+
         description = try? container.decode(String.self, forKey: .description)
         icon = try? container.decode(String.self, forKey: .icon)
     }
-    
+
     func getImageName() -> String? {
         guard let icon = self.icon,
             let iconImage = iconImage(rawValue: icon) else { return nil }
-        
+
         switch iconImage {
         case .clearSkyDay:
             return "clearSkyDay"

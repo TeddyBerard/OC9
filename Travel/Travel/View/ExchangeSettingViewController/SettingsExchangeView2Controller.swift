@@ -15,7 +15,7 @@ protocol SettingsExchangeViewControllerDelegate: class {
 class SettingsExchangeViewController: UIViewController {
 
     // MARK: - Properties
-    
+
     @IBOutlet weak var topMoneyPickerView: UIPickerView!
     @IBOutlet weak var bottomMoneyPickerView: UIPickerView!
     @IBOutlet weak var validateButton: UIButton!
@@ -30,7 +30,6 @@ class SettingsExchangeViewController: UIViewController {
     var date: String?
 
     // MARK: - Cycle Life
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +37,10 @@ class SettingsExchangeViewController: UIViewController {
         setupButton()
         setupView()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         setupPicker()
         downloadDateLabel.text = date
         downloadDateLabel.isHidden = false
@@ -50,7 +49,7 @@ class SettingsExchangeViewController: UIViewController {
     func setupView() {
         containerView.layer.cornerRadius = 20
     }
-    
+
     func setupPicker() {
         for index in 1...2 {
             topMoneyPickerView.subviews[index].isHidden = true
@@ -78,40 +77,40 @@ class SettingsExchangeViewController: UIViewController {
                                      inComponent: 0,
                                      animated: true)
     }
-    
+
     // MARK: - IBAction
-    
+
     @IBAction func switchAction(_ sender: Any) {
         let bottomSelectedRow = bottomMoneyPickerView.selectedRow(inComponent: 0)
         bottomMoneyPickerView.selectRow(topMoneyPickerView.selectedRow(inComponent: 0), inComponent: 0, animated: true)
         topMoneyPickerView.selectRow(bottomSelectedRow, inComponent: 0, animated: true)
     }
-    
+
     @IBAction func validateAction(_ sender: Any) {
         delegate?.saveCurrencies(topCurrency: symboles[topMoneyPickerView.selectedRow(inComponent: 0)],
                                  bottomCurrency: symboles[bottomMoneyPickerView.selectedRow(inComponent: 0)])
         self.dismiss(animated: true, completion: nil)
     }
-    
+
     @IBAction func resetAction(_ sender: Any) {
         setupSymbole()
     }
-    
+
 }
 
 extension SettingsExchangeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return symboles.count
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 60
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return symboles[row]
     }

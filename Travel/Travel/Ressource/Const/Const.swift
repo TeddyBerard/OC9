@@ -9,16 +9,16 @@
 import Foundation
 
 struct Const {
-    
+
     struct UserDefaultsKey {
         static let cities = "Cities"
         static let alreadySave = "alreadySave"
     }
-    
+
     struct ErrorSpecific {
         static let noConnection = "The Internet connection appears to be offline."
     }
-    
+
     struct ErrorAlert {
         static let errorOccured = "Une erreur est survenue."
         static let errorNetwork = "Veuillez vérifier votre connection internet."
@@ -28,5 +28,5 @@ struct Const {
         static let errorSymboles = "Les symboles ne sont pas téléchargés veuillez réessayez ultérieurement."
         static let errorCurrencies = "Les taux ne sont pas télécharger veuillez réessayez ultérieurement."
     }
-    
+
 }

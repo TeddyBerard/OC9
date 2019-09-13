@@ -29,7 +29,7 @@ class Exchange {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
+        URLSession.shared.dataTask(with: url) { (data, _, err) in
             if err?.localizedDescription == Const.ErrorSpecific.noConnection {
                 completion(nil, ExchangeError.noConnection)
             }
@@ -59,7 +59,7 @@ class Exchange {
             return
         }
 
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
+        URLSession.shared.dataTask(with: url) { (data, _, err) in
             if err?.localizedDescription == Const.ErrorSpecific.noConnection {
                 completion(nil, ExchangeError.noConnection)
                 return
@@ -87,7 +87,7 @@ class Exchange {
     }
 
     func getRate(amound: Double?, first: String,
-                 second: String, rates: [String:Double]?) -> Double {
+                 second: String, rates: [String: Double]?) -> Double {
         guard let amound = amound else { return 0 }
 
         if containsEUR(firstCurrency: first, secondCurrency: second) {
@@ -100,7 +100,7 @@ class Exchange {
     }
 
     func convertCurrencies(amound: Double, first: String,
-                           second: String, rates: [String:Double]?,
+                           second: String, rates: [String: Double]?,
                            isReverse: Bool) -> Double? {
         guard let rates = rates,
             let rate = getRates(first: first, second: second, rates: rates) else { return nil }
@@ -113,7 +113,7 @@ class Exchange {
     }
 
     func convertOtherCurrencies(amound: Double, first: String,
-                                second: String, rates: [String:Double]?) -> Double? {
+                                second: String, rates: [String: Double]?) -> Double? {
         guard let rates = rates,
             let firstRate = rates[first],
             let secondRate = rates[second] else { return nil }
@@ -121,7 +121,7 @@ class Exchange {
         return ((1 / firstRate) * amound) * secondRate
     }
 
-    func getRates(first: String, second: String, rates: [String:Double]) -> Double? {
+    func getRates(first: String, second: String, rates: [String: Double]) -> Double? {
         if let firstRate = rates[first], let secondRate = rates[second] {
             return firstRate == 1 ? secondRate : firstRate
         }
@@ -137,4 +137,3 @@ class Exchange {
     }
 
 }
-

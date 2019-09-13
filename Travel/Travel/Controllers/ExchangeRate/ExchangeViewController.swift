@@ -9,34 +9,34 @@
 import UIKit
 
 class ExchangeViewController: UIViewController {
-    
+
     // MARK: - Properties
-    
+
     @IBOutlet weak var topMoneyTextField: UITextField!
     @IBOutlet weak var bottomMoneyTextField: UITextField!
     @IBOutlet weak var settingBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var switchButton: UIButton!
     @IBOutlet weak var convertButton: UIButton!
-    
+
     enum ActiveCurrency {
         case top
         case bottom
     }
-    
+
     var activeCurrency: ActiveCurrency = .bottom
     private var symboles: [String] = []
-    private var rates: ExchangeCurrencies? = nil
+    private var rates: ExchangeCurrencies?
     var topCurrency: String = "EUR" {
         didSet {
             setupTextField(with: topMoneyTextField, isActive: true, actualCurrency: topCurrency)
         }
     }
     var bottomCurrency: String = "GBP" {
-        didSet{
+        didSet {
             setupTextField(with: bottomMoneyTextField, isActive: false, actualCurrency: bottomCurrency)
         }
     }
-    
+
     // MARK: - Cycle Life
 
     override func viewDidLoad() {
@@ -46,21 +46,23 @@ class ExchangeViewController: UIViewController {
         setupTextField(with: topMoneyTextField, isActive: true, actualCurrency: topCurrency)
         setupTextField(with: bottomMoneyTextField, isActive: false, actualCurrency: bottomCurrency)
     }
-    
+
     fileprivate func switchTextField() {
         switch activeCurrency {
         case .top:
             setupTextField(with: topMoneyTextField, isActive: true, actualCurrency: topCurrency)
             setupTextField(with: bottomMoneyTextField, isActive: false, actualCurrency: bottomCurrency)
             activeCurrency = .bottom
+            topMoneyTextField.becomeFirstResponder()
         case .bottom:
             setupTextField(with: bottomMoneyTextField, isActive: true, actualCurrency: bottomCurrency)
             setupTextField(with: topMoneyTextField, isActive: false, actualCurrency: topCurrency)
             activeCurrency = .top
+            bottomMoneyTextField.becomeFirstResponder()
             break
         }
     }
-    
+
     fileprivate func setupTextField(with textField: UITextField, isActive: Bool, actualCurrency: String) {
         if isActive {
             textField.isEnabled = isActive
@@ -76,7 +78,7 @@ class ExchangeViewController: UIViewController {
     // MARK: - Setup Exchange
 
     fileprivate func setupSymboles() {
-        Exchange.shared.downloadSymboles(completion: { [weak self] symboles, error  in
+        Exchange.shared.downloadSymboles(completion: { [weak self] symboles, _  in
             guard let symboles = symboles else {
                 return
             }
@@ -85,7 +87,7 @@ class ExchangeViewController: UIViewController {
     }
 
     fileprivate func setupCurrencies() {
-        Exchange.shared.dowloadCurrencies { [weak self] (rates, error) in
+        Exchange.shared.dowloadCurrencies { [weak self] (rates, _) in
             self?.rates = rates
         }
     }
@@ -104,13 +106,12 @@ class ExchangeViewController: UIViewController {
         alertController.addAction(close)
         self.present(alertController, animated: true, completion: nil)
     }
-    
+
     // MARK: - IBAction
-    
+
     @IBAction func switchAction(_ sender: Any) {
         switchTextField()
     }
-    
 
     @IBAction func convertAction(_ sender: Any) {
         guard rates != nil else {
@@ -135,7 +136,7 @@ class ExchangeViewController: UIViewController {
                                                                        rates: rates?.rates).rounded(toPlaces: 2))
         }
     }
-    
+
     @IBAction func SettingAction(_ sender: Any) {
         guard !symboles.isEmpty else {
             setupSymboles()
