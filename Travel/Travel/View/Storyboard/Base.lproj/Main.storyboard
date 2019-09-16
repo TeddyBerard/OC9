@@ -291,7 +291,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resultat(5)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRV-jD-b0s">
-                                <rect key="frame" x="12" y="163" width="85" height="21"/>
+                                <rect key="frame" x="12" y="163" width="402" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -308,7 +308,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-SB-jXw">
-                                <rect key="frame" x="346" y="44" width="48" height="30"/>
+                                <rect key="frame" x="335" y="44" width="59" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -360,9 +360,11 @@
                             <constraint firstItem="dtu-5P-coj" firstAttribute="bottom" secondItem="BvR-tQ-6hK" secondAttribute="bottom" id="Ce2-bp-TaL"/>
                             <constraint firstItem="fl6-el-SJJ" firstAttribute="centerX" secondItem="BvR-tQ-6hK" secondAttribute="centerX" id="GPa-Xs-aoU"/>
                             <constraint firstItem="IRV-jD-b0s" firstAttribute="top" secondItem="LNS-eB-maM" secondAttribute="bottom" constant="8" id="KOt-UT-e8S"/>
+                            <constraint firstItem="BvR-tQ-6hK" firstAttribute="trailing" secondItem="IRV-jD-b0s" secondAttribute="trailing" id="LXL-hK-n8D"/>
                             <constraint firstItem="LNS-eB-maM" firstAttribute="leading" secondItem="BvR-tQ-6hK" secondAttribute="leading" constant="8" id="Obk-Je-lqL"/>
                             <constraint firstItem="P7o-N7-36W" firstAttribute="leading" secondItem="Gr7-09-F8o" secondAttribute="leading" id="RiD-dh-A2Q"/>
                             <constraint firstItem="f0v-SB-jXw" firstAttribute="top" secondItem="BvR-tQ-6hK" secondAttribute="top" id="TPh-uI-n1T"/>
+                            <constraint firstItem="f0v-SB-jXw" firstAttribute="leading" secondItem="BvR-tQ-6hK" secondAttribute="leading" constant="335" id="Tjg-TS-L7f"/>
                             <constraint firstItem="P7o-N7-36W" firstAttribute="trailing" secondItem="BvR-tQ-6hK" secondAttribute="trailing" id="USh-RN-PAM"/>
                             <constraint firstItem="BvR-tQ-6hK" firstAttribute="trailing" secondItem="LNS-eB-maM" secondAttribute="trailing" constant="8" id="V5I-Vs-ehs"/>
                             <constraint firstItem="fl6-el-SJJ" firstAttribute="centerY" secondItem="BvR-tQ-6hK" secondAttribute="centerY" id="X54-gC-biw"/>
@@ -387,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBk-UU-ctV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1854" y="159"/>
+            <point key="canvasLocation" x="1853.6231884057972" y="158.70535714285714"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8ax-Ni-vxP">
