@@ -53,7 +53,7 @@ class TranslationViewController: UIViewController {
     }
 
     @IBAction func clearAction(_ sender: Any) {
-        wantedTranslatedTextView.text = ""
+        wantedTranslatedTextView.text = "Entrez un texte à traduire"
     }
 
 }

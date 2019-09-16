@@ -106,20 +106,14 @@ class ExchangeViewController: UIViewController {
         alertController.addAction(close)
         self.present(alertController, animated: true, completion: nil)
     }
-
-    // MARK: - IBAction
-
-    @IBAction func switchAction(_ sender: Any) {
-        switchTextField()
-    }
-
-    @IBAction func convertAction(_ sender: Any) {
+    
+    func convertMoney() {
         guard rates != nil else {
             setupCurrencies()
             displayCustomError(message: Const.ErrorAlert.errorCurrencies)
             return
         }
-
+        
         if topMoneyTextField.isEnabled,
             let stringAmound = topMoneyTextField.text,
             let amound = Double(stringAmound) {
@@ -131,10 +125,28 @@ class ExchangeViewController: UIViewController {
             let stringAmound = bottomMoneyTextField.text,
             let amound = Double(stringAmound) {
             topMoneyTextField.text = String(format: "%.2f",
-                                               Exchange.shared.getRate(amound: amound, first: bottomCurrency,
-                                                                       second: topCurrency,
-                                                                       rates: rates?.rates).rounded(toPlaces: 2))
+                                            Exchange.shared.getRate(amound: amound, first: bottomCurrency,
+                                                                    second: topCurrency,
+                                                                    rates: rates?.rates).rounded(toPlaces: 2))
         }
+    }
+
+    // MARK: - IBAction
+    
+    @IBAction func topEditingChanged(_ sender: Any) {
+        convertMoney()
+    }
+    
+    @IBAction func bottomEditingChanged(_ sender: Any) {
+        convertMoney()
+    }
+    
+    @IBAction func switchAction(_ sender: Any) {
+        switchTextField()
+    }
+
+    @IBAction func convertAction(_ sender: Any) {
+        convertMoney()
     }
 
     @IBAction func SettingAction(_ sender: Any) {

@@ -41,14 +41,14 @@ class TranslationTests: XCTestCase {
         let expectation = self.expectation(description: "IncorrectText")
         var text: String?
 
-        translate.getTranslate(text: "Hello", source: "en", target: "fr", completion: { translate, _ in
+        translate.getTranslate(text: "Bonjour", source: "fr", target: "en", completion: { translate, _ in
             text = translate
             expectation.fulfill()
         })
 
         waitForExpectations(timeout: 5, handler: nil)
 
-        XCTAssertEqual(text, "Bonjour")
+        XCTAssertEqual(text, "Hello")
     }
 
     func testWrongJson() {

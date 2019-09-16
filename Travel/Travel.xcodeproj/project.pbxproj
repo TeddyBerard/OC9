@@ -32,7 +32,7 @@
 		3A967EB7230860FD002754DD /* WeatherHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A967EB6230860FD002754DD /* WeatherHeaderView.swift */; };
 		3A9BD93222E9DAD200116F53 /* ListCity.json in Resources */ = {isa = PBXBuildFile; fileRef = 3A9BD93122E9DAD100116F53 /* ListCity.json */; };
 		3AB0856D22E855BE00194E8B /* SearchCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB0856C22E855BE00194E8B /* SearchCityViewController.swift */; };
-		3AB1B545230DE3A90042ECD9 /* SettingsExchangeView2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1B543230DE3A80042ECD9 /* SettingsExchangeView2Controller.swift */; };
+		3AB1B545230DE3A90042ECD9 /* SettingsExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1B543230DE3A80042ECD9 /* SettingsExchangeViewController.swift */; };
 		3AB1B546230DE3A90042ECD9 /* SettingsExchangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AB1B544230DE3A90042ECD9 /* SettingsExchangeViewController.xib */; };
 		3AB1B548230DE7830042ECD9 /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB1B547230DE7830042ECD9 /* ExchangeViewController.swift */; };
 		3AC9608122EF4CC10045887F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC9608022EF4CC10045887F /* City.swift */; };
@@ -92,7 +92,7 @@
 		3A967EB6230860FD002754DD /* WeatherHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderView.swift; sourceTree = "<group>"; };
 		3A9BD93122E9DAD100116F53 /* ListCity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ListCity.json; sourceTree = "<group>"; };
 		3AB0856C22E855BE00194E8B /* SearchCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCityViewController.swift; sourceTree = "<group>"; };
-		3AB1B543230DE3A80042ECD9 /* SettingsExchangeView2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExchangeView2Controller.swift; sourceTree = "<group>"; };
+		3AB1B543230DE3A80042ECD9 /* SettingsExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsExchangeViewController.swift; sourceTree = "<group>"; };
 		3AB1B544230DE3A90042ECD9 /* SettingsExchangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsExchangeViewController.xib; sourceTree = "<group>"; };
 		3AB1B547230DE7830042ECD9 /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		3AC9608022EF4CC10045887F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 		3AB1B542230DE3760042ECD9 /* ExchangeSettingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3AB1B543230DE3A80042ECD9 /* SettingsExchangeView2Controller.swift */,
+				3AB1B543230DE3A80042ECD9 /* SettingsExchangeViewController.swift */,
 				3AB1B544230DE3A90042ECD9 /* SettingsExchangeViewController.xib */,
 			);
 			path = ExchangeSettingViewController;
@@ -546,7 +546,7 @@
 				3A86FECE231465240022D3FA /* Exchange.swift in Sources */,
 				3A7247852326B71F00AC30D6 /* Translate.swift in Sources */,
 				3A79832122D0A34D0050E4B7 /* Const.swift in Sources */,
-				3AB1B545230DE3A90042ECD9 /* SettingsExchangeView2Controller.swift in Sources */,
+				3AB1B545230DE3A90042ECD9 /* SettingsExchangeViewController.swift in Sources */,
 				3AB1B548230DE7830042ECD9 /* ExchangeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
